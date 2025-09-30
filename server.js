@@ -7,7 +7,7 @@ import mongoose from "mongoose";
 
 const app = express();
 app.use(bodyParser.json());
-app.use(cors({ origin: ["https://swipe-frontend-ko7b-ayjv586k0-meghana-golis-projects.vercel.app"] }));
+app.use(cors());
 
 const PORT = 5000;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
