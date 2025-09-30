@@ -7,7 +7,7 @@ import mongoose from "mongoose";
 
 const app = express();
 app.use(bodyParser.json());
-app.use(cors({ origin: ["http://localhost:5173", "http://localhost:5174"] }));
+app.use(cors({ origin: ["https://swipe-frontend-ko7b-ayjv586k0-meghana-golis-projects.vercel.app"] }));
 
 const PORT = 5000;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
@@ -352,13 +352,12 @@ app.post("/api/finalSummary", async (req, res) => {
 
     The candidate answered the following questions:
     ${answers
-      .map(
-        (a, i) =>
-          `${i + 1}. Q: ${a.question} A: ${a.answer} Score: ${
-            a.score
-          } Feedback: ${a.feedback}`
-      )
-      .join("\n")}
+        .map(
+          (a, i) =>
+            `${i + 1}. Q: ${a.question} A: ${a.answer} Score: ${a.score
+            } Feedback: ${a.feedback}`
+        )
+        .join("\n")}
 
     Provide a concise 3-4 line professional summary of the candidate's performance, strengths, weaknesses, and overall readiness for a full stack role.
     Return ONLY the summary text directly, no JSON formatting, no quotes, no brackets.
